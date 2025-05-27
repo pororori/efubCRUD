@@ -3,9 +3,8 @@ import axios from "axios";
 const axiosInstance = axios.create({
   baseURL: "https://api.efub-seminar.o-r.kr",
   headers: {
-    "Content-Type": "application/json",
+    //콘텐츠 타입 넣기기
   },
-  timeout: 5000,
 });
 
 export default axiosInstance;

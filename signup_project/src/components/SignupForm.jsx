@@ -21,9 +21,9 @@ export default function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axiosInstance.post("/members", formData);
+      //res 로 post 보내기
       setMessage("✅ 회원가입 성공!");
-      console.log(res.data);
+      //   console.log(res.data);
     } catch (err) {
       setMessage("❌ 회원가입 실패!");
       console.error(err);
