@@ -18,12 +18,15 @@ export default function SignUpForm() {
       [e.target.name]: e.target.value,
     }));
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       //res 로 post 보내기
+      const res = await axiosInstance.post("/members", formData);
       setMessage("✅ 회원가입 성공!");
       //   console.log(res.data);
+      console.log(res.data);
     } catch (err) {
       setMessage("❌ 회원가입 실패!");
       console.error(err);
