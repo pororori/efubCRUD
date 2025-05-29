@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axiosInstance from "../libs/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpForm() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,15 +21,15 @@ export default function SignUpForm() {
       [e.target.name]: e.target.value,
     }));
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      //res 로 post 보내기
       const res = await axiosInstance.post("/members", formData);
       setMessage("✅ 회원가입 성공!");
-      //   console.log(res.data);
       console.log(res.data);
+
+      navigate("/boards");
     } catch (err) {
       setMessage("❌ 회원가입 실패!");
       console.error(err);
